@@ -2,6 +2,7 @@ package com.example.lesson51homework.model;
 
 import lombok.Data;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.index.CompoundIndex;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.time.LocalDate;
@@ -10,6 +11,7 @@ import java.util.List;
 
 @Document(collection = "albums")
 @Data
+@CompoundIndex(def = "{'title':1, 'year':1}")
 public class Album {
     @Id
     private String albumId;
@@ -29,6 +31,6 @@ public class Album {
 
     @Override
     public String toString() {
-        return title + ", " + year;
+        return title + ", " + year.getYear();
     }
 }

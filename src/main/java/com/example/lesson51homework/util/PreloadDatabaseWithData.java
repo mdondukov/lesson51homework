@@ -57,6 +57,38 @@ public class PreloadDatabaseWithData {
         news.addTrack(new Track("Fight From The Inside", "03:03"));
         queen.addAlbum(news);
 
-        return new Singer[]{queen};
+        Singer acdc = new Singer("AC/DC");
+
+        Album black = new Album("Back in Black", LocalDate.parse("1980", DTF));
+        black.addTrack(new Track("Hells Bells", "05:12"));
+        black.addTrack(new Track("Shoot to Thrill", "05:17"));
+        black.addTrack(new Track("What Do You Do for Money Honey", "03:35"));
+        black.addTrack(new Track("Givin’ the Dog a Bone", "03:31"));
+        black.addTrack(new Track("Let Me Put My Love into You", "04:15"));
+        black.addTrack(new Track("Back in Black", "04:15"));
+        black.addTrack(new Track("You Shook Me All Night Long", "03:30"));
+        black.addTrack(new Track("Have a Drink on Me", "03:58"));
+        black.addTrack(new Track("Shake a Leg", "04:05"));
+        black.addTrack(new Track("Rock And Roll Ain’t Noise Pollution", "04:16"));
+
+        acdc.addAlbum(black);
+
+        Singer dp = new Singer("Deep Purple");
+
+        Album rock = new Album("Deep Purple in Rock", LocalDate.parse("1970", DTF));
+        rock.addTrack(new Track("Speed King", "05:49"));
+        rock.addTrack(new Track("Bloodsucker", "04:10"));
+        rock.addTrack(new Track("Child in Time", "10:14"));
+
+        dp.addAlbum(rock);
+
+        Album machine = new Album("Machine Head", LocalDate.parse("1972", DTF));
+        machine.addTrack(new Track("Smoke on the Water", "05:40"));
+        machine.addTrack(new Track("Lazy", "07:19"));
+        machine.addTrack(new Track("Space Truckin'", "04:31"));
+
+        dp.addAlbum(machine);
+
+        return new Singer[]{queen, acdc, dp};
     }
 }
