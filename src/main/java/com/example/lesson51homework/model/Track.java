@@ -13,4 +13,18 @@ public class Track {
     private String trackId;
     private String title;
     private LocalTime duration;
+
+    public Track(String title, LocalTime duration) {
+        this.title = title;
+        this.duration = duration;
+    }
+
+    public LocalTime getDuration() {
+        return duration;
+    }
+
+    @Override
+    public String toString() {
+        return title + ", " + duration;
+    }
 }

@@ -26,6 +26,6 @@ public class Singer {
 
     @Override
     public String toString() {
-        return "Singer: " + name;
+        return name;
     }
 }

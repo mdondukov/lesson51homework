@@ -32,6 +32,6 @@ public class Album {
 
     @Override
     public String toString() {
-        return "Album: " + title + ", " + year;
+        return title + ", " + year;
     }
 }
