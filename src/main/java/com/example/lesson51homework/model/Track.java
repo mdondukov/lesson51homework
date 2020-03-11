@@ -12,15 +12,11 @@ public class Track {
     @Id
     private String trackId;
     private String title;
-    private LocalTime duration;
+    private String duration;
 
-    public Track(String title, LocalTime duration) {
+    public Track(String title, String duration) {
         this.title = title;
         this.duration = duration;
-    }
-
-    public LocalTime getDuration() {
-        return duration;
     }
 
     @Override
