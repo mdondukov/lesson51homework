@@ -52,6 +52,21 @@ class Lesson51homeworkApplicationTests {
     }
 
     @Test
+    public void testCountOfTracks() {
+        LOG.info("*** Number of Tracks ***");
+
+        List<Album> albums = repository.findAll();
+        long countAllTracks = albums.stream()
+                .map(Album::getTracks)
+                .flatMap(Collection::stream)
+                .distinct()
+                .count();
+
+        LOG.info("Tracks count: " + countAllTracks);
+        LOG.info("************************");
+    }
+
+    @Test
     public void testFindAllAlbums() {
         LOG.info("*** All Albums ***");
 

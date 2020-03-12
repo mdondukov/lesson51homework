@@ -1,15 +1,12 @@
 package com.example.lesson51homework.model;
 
 import lombok.Data;
-import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 @Document(collection = "tracks")
 @Data
 public class Track {
-    @Id
-    private String trackId;
     @Indexed
     private String title;
     private String duration;
