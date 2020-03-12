@@ -18,6 +18,7 @@ public class Album {
     private String title;
     private LocalDate year;
     private List<Track> tracks;
+    private List<Singer> singers;
 
     public Album(String title, LocalDate year) {
         this.title = title;
@@ -27,6 +28,11 @@ public class Album {
     public void addTrack(Track track) {
         if (tracks == null) tracks = new ArrayList<>();
         tracks.add(track);
+    }
+
+    public void addSinger(Singer singer) {
+        if (singers == null) singers = new ArrayList<>();
+        singers.add(singer);
     }
 
     @Override

@@ -15,16 +15,16 @@ public class Singer {
     private String singerId;
     @Indexed
     private String name;
-    private List<Album> albums;
+//    private List<Album> albums;
 
     public Singer(String name) {
         this.name = name;
     }
 
-    public void addAlbum(Album album) {
-        if (albums == null) albums = new ArrayList<>();
-        albums.add(album);
-    }
+//    public void addAlbum(Album album) {
+//        if (albums == null) albums = new ArrayList<>();
+//        albums.add(album);
+//    }
 
     @Override
     public String toString() {
