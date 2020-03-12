@@ -1,28 +1,26 @@
 package com.example.lesson51homework.util;
 
-import com.example.lesson51homework.model.Album;
-import com.example.lesson51homework.model.AlbumRepository;
-import com.example.lesson51homework.model.Singer;
-import com.example.lesson51homework.model.Track;
+import com.example.lesson51homework.model.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.stream.Stream;
 
 @Configuration
 public class PreloadDatabaseWithData {
     @Bean
-    CommandLineRunner initDatabase(AlbumRepository repository) {
+    CommandLineRunner initAlbumRepository(AlbumRepository repository) {
         repository.deleteAll();
 
-        return (args) -> Stream.of(items())
+        return (args) -> Stream.of(albums())
                 .peek(System.out::println)
                 .forEach(repository::save);
     }
 
-    private Album[] items() {
+    private Album[] albums() {
 
         Singer queen = new Singer("Queen");
 
@@ -80,5 +78,20 @@ public class PreloadDatabaseWithData {
         machine.addSinger(dp);
 
         return new Album[]{opera, news, black, rock, machine};
+    }
+
+    @Bean
+    CommandLineRunner initUserRepository(UserRepository repository) {
+        repository.deleteAll();
+
+        return (args) -> Stream.of(users())
+                .peek(System.out::println)
+                .forEach(repository::save);
+    }
+
+    private User[] users() {
+        User user = new User("user@example.com", "123");
+        user.addSearch(new Search("123", "singer", LocalDateTime.now()));
+        return new User[]{user};
     }
 }
